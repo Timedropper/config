@@ -7,11 +7,5 @@ if [ $key = 1 ];then
 elif [ $key = 2 ];then
 	termux-setup-storage
 	cd /data/data/com.termux/files
-	rm -rf home
-	tar -zxvf /sdcard/termux-backup.tar.gz home
-	cp ./usr/bin/busybox ./tar
-	rm -rf usr
-	unset LD_PRELOAD
-	./tar -zxvf /sdcard/termux-backup.tar.gz usr
-	rm tar
+	tar -zxf /sdcard/termux-backup.tar.gz --recursive-unlink --preserve-permissions
 fi
